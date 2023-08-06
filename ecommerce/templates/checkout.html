@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    {%load static%}
+    <title>Dreamcatchers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('{%static "peach.jpg"%}');
+            background-size: cover;
+
+        }
+
+        .he {
+            margin-top: -10px;
+            width: 100%;
+            height: 300px;
+
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+
+            border-radius: 5px;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+
+        .carousel-item {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 100px;
+        }
+
+        .carousel-item img {
+            width: 60%;
+            height: 300px;
+            border-radius: 5px;
+            border: 1px solic black;
+        }
+
+
+        .carousel-item h3,
+        h4 {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .cost {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .col-md-3 img {
+            width: 250px;
+            height: 250px;
+        }
+
+
+        .navbar {
+            background-color: rgb(255, 79, 188);
+            border-radius: 0px;
+            margin-top: -20px;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            margin-left: 40px;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 13px 20ox;
+            padding-top: 20px;
+        }
+
+        .navbar li a {
+            padding-top: 20px;
+            text-decoration: none;
+            color: white;
+            margin: 13px;
+
+        }
+
+        .cartlist {
+            margin-left: 1450px;
+            color: red;
+            font-size: 20px;
+
+
+        }
+
+        .clearcart {
+
+            color: black;
+            font-size: 18px;
+            margin-top: 8px;
+
+
+        }
+
+        .checkoutlist {
+
+            color: black;
+            font-size: 18px;
+            margin-top: 8px;
+
+
+        }
+
+        .cart {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: blue;
+        }
+
+        .quickview {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: blue;
+        }
+
+        .navbar li a:hover {
+            color: red;
+        }
+
+        .search {
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+
+        .navbar input {
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 4px 17px;
+            width: 129px;
+        }
+
+        .logo {
+            margin-left: -20px;
+            margin-top: -10px;
+            width: 50px;
+        }
+
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #f95d03;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 25%;
+            opacity: 0.8;
+            margin-top: 100px;
+            margin-left: 400px;
+
+        }
+
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        #mydiv {
+            height: 115px;
+            max-width: 300px;
+            margin-top: 14px;
+            margin-left: 330px;
+            padding: 20px;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .b1 {
+            width: 200px;
+            margin-left: -300px;
+            padding: 12px;
+            margin-top: 7px;
+            border-radius: 15px;
+            color: #111110;
+            text-align: center;
+            font-weight: bolder;
+            background-color: rgb(16, 245, 8);
+        }
+
+        .b1:hover {
+            cursor: pointer;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><img src='{%static "lcor.jpg" %}' class="logo"></li>
+                <li><a href="mainpage">HOME</a></li>
+                <li><a href="dreamcatchers">Shop</a></li>
+                
+                <li><a href="gallery">GALLERY</a></li>
+                <li><a href="mainpage">CONTACT US</a> </li>
+                {%if request.user.is_authenticated%}
+                <li><a href="logoutuser" class="btn btn-success" type="submit">Logout</a></li>
+                {%endif%}
+
+            </ul>
+
+
+
+            <button type="button" font-size="30px" class="cartlist" id="popcart" data-container="body" 
+                data-html="true" data-toggle="popover"
+                 data-placement="bottom" data-content="Bottom popover">
+                 cart(<span id="cart">0</span>)
+                </button>
+
+        </nav>
+
+    </header>
+
+    <div class="he">
+        <h1><img src='{%static "head1.jpg" %}' class="he"> </h1>
+    </div>
+
+    <!-- <div class="container">
+        <div class="col">
+          <h2>Step 1- My Awesome Cart Express checkout - Review Your Cart Items</h2>
+          <div class="my-4">
+            <ul class="list-group" id="items">
+      
+            </ul>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mt-3">
+                  <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>Rs.<span id="totalPrice"></b>  </span>Enter your details below & place your order. Thanks for using My Awesome Cart!</li>
+              </ol>
+          </nav>
+      
+          </div>
+      
+        </div>
+      
+        <div class="col my-4">
+          <h2>Step 2-Enter Address and Other Details</h2>
+          <form method="post" action="checkout">{% csrf_token %}
+            <input type="hidden" name="itemsJson" id="itemsJson">
+            <input type="hidden" name="amount" id="amount">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="address1" name="address1" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+              <label for="inputAddress2">Address Line 2</label>
+              <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="city" name="city">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <input type="text" class="form-control" id="state" name="state" placeholder="Enter State">
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="zip_code" name="zip_code">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputZip">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone">
+            </div>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+          </form>
+        </div>
+      
+      
+      
+      </div>
+      
+      <script src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"></script> -->
+
+
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+          {% for message in messages %}
+      
+          <div
+            class="alert alert-{{message.tags}} alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>{{message}}</strong>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+          {% endfor %}
+      
+          <div class="section-title">
+            <h2>Welcome to Shop</h2>
+            <h3>Checkout Page </h3>
+          </div>
+      
+             
+             
+             <div class="container">
+                 <div class="col my-4">
+                     <h2>Step 1 - My Awesome Cart Express Checkout - Review Your Cart Items</h2>
+                     <div class="my-4">
+                         <ul class="list-group" id="items">
+      
+                          
+                         </ul>
+             
+                         <nav aria-label="breadcrumb">
+               <ol class="breadcrumb mt-3">
+                 <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>Rs. <span id="totalprice"></span> <span id="amount"></span></b>. Enter your details below & place your order. Thanks for using Shopping Cart</li>
+                 </li>
+               </ol>
+             </nav>
+             
+             
+             
+                         
+                     </div>
+                 </div>
+                 <div class="col my-4">
+                     <h2>Step 2 - Enter Address & Other Details:</h2>
+                     <form method="post" action="checkout">{% csrf_token %}
+                         <input type="hidden" name="itemsJson" id="itemsJson">
+                      
+                         <input type="hidden" id="amt" name="amt">
+                         <div class="form-row">
+                             <div class="form-group col-md-6">
+                                 <label for="inputname">Name</label>
+                                 <input type="text" class="form-control mt-3" id="name" name="name" placeholder="Name" required>
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <label for="inputEmail4">Email</label>
+                                 <input type="email" class="form-control mt-3" id="email" name="email" placeholder="Email" value="{{user.email}}" required>
+                             </div>
+                          
+                         </div>
+                          <div class="form-row">
+                         <div class="form-group col-md-6">
+                             <label for="inputAddress">Address</label>
+                             <input type="text" class="form-control mt-3" id="address1" name="address1" placeholder="1234 Main St" required>
+                         </div>
+                         <div class="form-group col-md-6">
+                             <label for="inputAddress">Address line 2</label>
+                             <input type="text" class="form-control mt-3" id="address2" name="address2" placeholder="1234 Main St" required>
+                         </div>
+                         </div>
+             
+                       
+                       
+                         <div class="form-row">
+                             <div class="form-group col-md-6">
+                                 <label for="inputCity">City</label>
+                                 <input type="text" class="form-control mt-3" id="city" name="city" required>
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <label for="inputState">State</label>
+                                 <input type="text" class="form-control mt-3" id="state" name="state"  placeholder="Enter State" required>
+                             </div>
+                             </div>
+                           
+                          <div class="form-row">
+                          <div class="form-group col-md-6">
+                                 <label for="inputZip">Pin Code</label>
+                                 <input type="number" class="form-control mt-3" id="zip_code" name="zip_code" required>
+                             </div>
+                         <div class="form-group col-md-6">
+                             <label for="inputZip">Phone Number</label>
+                             <input type="number" class="form-control mt-3" id="phone" name="phone" required>
+                         </div>
+                         <br>
+                     
+                         
+                         <button id="btn" type="submit" class="btn btn-success btn-sm btn-block col-md-4">Place Order</button>
+                     </form>
+                 </div>
+             </div>
+         
+       <script src="https://code.jquery.com/jquery-3.3.1.js"
+       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+       crossorigin="anonymous"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+      
+      
+      <script>
+      if (localStorage.getItem('cart') == null) {
+         var cart = {};
+      } else {
+         cart = JSON.parse(localStorage.getItem('cart'));
+      }
+      console.log(cart);
+      
+      var sum = 0;
+      var totalPrice = 0;
+      if ($.isEmptyObject(cart)) {
+         //if object is empty
+         mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
+         $('#items').append(mystr);
+      } else {
+         for (item in cart) {
+             let name = cart[item][1];
+             let qty = cart[item][0];
+             let itemPrice = cart[item][2];
+             sum = sum + qty;
+             totalPrice = totalPrice + qty* itemPrice;
+             
+             mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                         ${name}
+                         <div><b> Price : ${itemPrice}</b></div>
+                         <span class="badge badge-primary badge-pill">${qty}</span>
+                     </li>`
+             $('#items').append(mystr);
+         }
+         document.getElementById('totalprice').innerHTML=totalPrice
+      
+      }
+      document.getElementById('totalprice').innerHTML = totalPrice;
+      
+      $('#itemsJson').val(JSON.stringify(cart));
+      
+      
+      
+      {% if thank %}
+      alert('Thanks for ordering with us. Your order is is {{id}}. Use it to track your order using our order tracker');
+      localStorage.clear();
+      document.location = "/";
+      {% endif %}
+      
+      var test = `${totalPrice}`;
+      document.getElementById("amt").value = test;
+      </script>
+    
+            
+
+</body>
+
+</html>

@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>craftcatcher.com</title>
+    <style>
+        :root {
+            --white: #fff;
+            --black: #222;
+            --green: #6cbe02;
+            --grey1: #f0f0f0;
+            --grey2: #e9d7d3;
+        }
+
+        /* Basic Reset */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        html {
+            box-sizing: border-box;
+            font-size: 62.5%;
+        }
+
+        body {
+            background-image: url('{%static "/images/peach.jpg"%}');
+            background-size: cover;
+            font-family: 'cursive';
+            font-size: 1.6rem;
+            color: var(--black);
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 114rem;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .d-flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar {
+            background-color: rgb(2, 58, 26);
+            border-radius: 30px;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            margin-left: 40px;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 13px 20ox;
+            padding-top: 20px;
+        }
+
+        .navbar li a {
+            padding-top: 20px;
+            text-decoration: none;
+            color: white;
+            margin: 13px;
+
+        }
+
+        .navbar li a:hover {
+            color: red;
+        }
+
+        .search {
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+
+        .navbar input {
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 4px 17px;
+            width: 129px;
+        }
+
+        .logo {
+            margin-left: 2px;
+            margin-top: -10px;
+            width: 50px;
+        }
+
+        .tag {
+            top: 127px;
+            margin-left: 300px;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .head {
+            width: 500px;
+            top: 500px;
+
+        }
+
+        .below {
+            margin-left: 720px;
+            margin-top: -10px;
+            font-size: 25px;
+            color: blue;
+            font-family: cursive;
+            position: absolute;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .dc {
+            margin-top: 0px;
+            width: 500px;
+            height: 500px;
+            margin-right: 700px;
+        }
+
+        .de {
+            margin-top: 30px;
+            margin-left: 656px;
+            margin-bottom: 1000px;
+        }
+
+        .res {
+            margin-top: 30px;
+            margin-left: 650px;
+            bottom: 1700px;
+        }
+
+        .wlo {
+
+            width: 170px;
+            border-radius: 50%;
+            margin-left: 1350px;
+            margin-top: -1000px;
+        }
+
+        .up {
+            margin-top: -100px;
+        }
+
+        .wer {
+            margin-top: 134px;
+        }
+
+        .cont {
+            margin-left: 600px;
+            margin-top: -900px;
+            font-size: 30px;
+            font-family: cursive;
+            color: brown;
+
+        }
+
+        .slider-container {
+            width: 900px;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            margin-top: -450px;
+            left: 80px;
+        }
+
+        .slider-container img {
+            width: 400px;
+            height: 500px;
+
+        }
+
+        
+        @media only screen and (max-width: 600px){
+            .navbar{
+               
+                margin-top:8px;
+                width:1150px;
+                flex:row;
+                height:100px;
+                background-color:rgb(200,50,100);       
+
+            }
+            .navbar ul {
+                
+                margin-left: 80px;
+                font-size: 30px;
+                font-family: cursive;
+                
+            }
+    
+            .navbar li {
+                float: left;
+                list-style: none;
+                margin: 13px 20ox;
+                padding-top: 25px;
+            }
+    
+            .navbar li a {
+                padding-top: 20px;
+                text-decoration: none;
+                color: white;
+                margin: 13px;
+    
+            }
+    
+            .navbar li a:hover {
+                color: red;
+            }
+
+
+            .logo {
+                margin-left: 2px;
+                margin-top: -10px;
+                width: 50px;
+            }
+    
+            .tag {
+                top: 127px;
+                margin-left: 160px;
+                position: relative;
+                text-align: center;
+                color: white;
+            }
+    
+            .head {
+                width: 500px;
+                top: 500px;
+                margin-left:270px;
+            }
+    
+            .below {
+                margin-left: 550px;
+                margin-top: 0px;
+                font-size: 25px;
+                width:300px;
+                color: blue;
+                font-family: cursive;
+                position: absolute;
+                transform: translate(-50%, -50%);
+    
+            }
+    
+            .dc {
+                margin-top: 0px;
+                width: 500px;
+                height: 500px;
+                margin-right: 700px;
+            }
+    
+            .de {
+                margin-top: 30px;
+                margin-left: 600px;
+                margin-bottom: 1000px;
+            }
+    
+            .res {
+                margin-top: 65px;
+                margin-left: 580px;
+                bottom: 1700px;
+            }
+    
+            .wlo {
+    
+                width: 150px;
+                border-radius: 50%;
+                margin-left: 1080px;
+                margin-top: -1000px;
+            }
+    
+            .up {
+                margin-top: -100px;
+            }
+    
+            .wer {
+                margin-top: 134px;
+                margin-left:-120px;
+            }
+    
+            .cont {
+                margin-left: 570px;
+                margin-top: -900px;
+                font-size: 30px;
+                font-family: cursive;
+                width:700px;
+                color: brown;
+                flex:row;
+    
+            }
+    
+            .slider-container {
+                width: 900px;
+                height: 500px;
+                overflow: hidden;
+                position: relative;
+                margin-top: -500px;
+                left: 20px;
+            }
+    
+            .slider-container img {
+                width: 400px;
+                height: 500px;
+    
+            }
+    
+    
+        }
+
+        .section {
+            padding: 10rem 0 5rem 0;
+           
+        }
+
+        .cat-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 114rem;
+            margin: auto;
+            padding: 0 3rem;
+        }
+
+        .cat-center .cat {
+            max-width: 37rem;
+            height: 25rem;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .cat-center .cat:not(:last-child) {
+            margin-right: 3rem;
+        }
+
+        .cat-center .cat img {
+            width: 350px;
+            height: 100%;
+            margin: auto;
+            object-fit: cover;
+            transition: all 2s ease;
+        }
+
+        .wri {
+            color: var(--white);
+        }
+
+        .wri:hover {
+            color: red;
+        }
+
+        .cat-center .cat:hover img {
+            transform: scale(1.1);
+        }
+
+        .cat-center .cat div {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--black);
+            color: var(--white);
+            width: 18rem;
+            height: 5rem;
+            line-height: 5rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .cat-center .cat img {
+                width: 30rem;
+            }
+        }
+
+        @media only screen and (max-width: 967px) {
+            .cat-center .cat {
+                max-width: 25rem;
+                height: 20rem;
+            }
+
+            .cat-center .cat img {
+                width: 100px;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .section {
+                padding: 5rem 20rem;
+                width:1150px;
+            }
+
+            .cat-center {
+                margin-left:-200px;
+                width:950px;
+                flex-direction: row;
+                padding: 10px;
+            }
+
+            .cat-center .cat {
+                width:500px;
+                height: 300px;
+            }
+
+            .cat-center .cat {
+                width:639px;
+                margin-right: 0rem;
+                margin-bottom: -20px;
+            }
+
+            .cat-center .cat img {
+                width: 213px;
+                margin-left:30px;
+                
+            }
+            
+            .wri:hover {
+                color: red;
+            }
+    
+            .cat-center .cat:hover img {
+                transform: scale(1.1);
+            }
+    
+            .cat-center .cat div {
+                position: absolute;
+                bottom: 15%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: var(--black);
+                color: var(--white);
+                width: 18rem;
+                height: 5rem;
+                line-height: 5rem;
+                text-align: center;
+                font-size: 2rem;
+                font-weight: 500;
+            }
+    
+        }
+
+        
+        /* New Arrivals */
+        .title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .title h1 {
+            font-size: 35px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-family: cursive;
+            
+        }
+        .title p{
+            font-size: 20px;
+            font-family: cursive;
+            
+        }
+
+        .product-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 130rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .product-item {
+            position: relative;
+            width: 27rem;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+        }
+
+        .product-thumb img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            transition: all 500ms linear;
+        }
+
+        .product-info {
+            padding: 1rem;
+            text-align: center;
+            font-family: cursive;
+        }
+
+        .product-info h4{
+            font-size: 18px;
+
+        }
+
+        .product-info a {
+            font-size: 25px;
+            display: block;
+            margin-bottom: 1rem;
+            transition: all 300ms ease;
+            color:red;
+        }   
+
+        .product-info a:hover {
+            color: var(--green);
+        }
+
+        .product-item .icons {
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .product-item .icons li {
+            background-color: var(--white);
+            text-align: center;
+            padding: 1rem 1.5rem;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 300ms ease-out;
+            transform: translateY(20px);
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .product-item .icons li:first-child {
+            transition-delay: 0.1s;
+        }
+
+        .product-item .icons li:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .product-item .icons li:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .product-item:hover .icons li {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-item .icons li:not(:last-child) {
+            margin-right: 0.5rem;
+        }
+
+        .product-item .icons li:hover {
+            background-color: var(--green);
+            color: var(--white);
+        }
+
+        .product-item .overlay {
+
+            overflow: hidden;
+            cursor: pointer;
+            width: 300px;
+            height: 300px;
+        }
+
+        .product-item .overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+            opacity: 0;
+            transition: 300ms ease-out;
+        }
+
+        .product-item:hover .overlay::after {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .product-item:hover .product-thumb img {
+            transform: scale(1.1);
+        }
+
+        .product-item .discount {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--green);
+            padding: 0.5rem 1rem;
+            color: var(--white);
+            border-radius: 2rem;
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .title {
+                text-align: center;
+                margin-bottom: 5rem;
+                width:1150px;
+                
+            }
+    
+            .title h1 {
+                font-size: 40px;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+                font-weight: 500;
+                font-family: cursive;
+                margin-left:-450px;
+                
+            }
+            .title p{
+                font-size: 30px;
+                font-family: cursive;
+                margin-left:-160px;
+                width:1000px;
+            }
+
+            .product-center {
+                margin-left:-200px;
+                width:1100px;
+                max-width:1200px;
+                padding: 0 1rem;
+                flex-direction:row;
+                display:flex;
+            }
+
+            .product-item {
+                width: 400px;
+                margin-bottom: 3rem;
+            }
+
+            .product-thumb img {
+                height: 20rem;
+            }
+
+            .product-item {
+                margin-right: 2rem;
+            }
+
+            .product-item .icons li {
+                padding: 0.5rem 1rem;
+                font-size: 1.8rem;
+            }
+            .product-info {
+                margin-left:-100px;
+                margin-top:-100px;
+                text-align: center;
+                font-family: cursive;
+            }
+    
+            .product-info h4{
+                font-size: 18px;
+    
+            }
+    
+            .product-info a {
+                font-size: 25px;
+                display: block;
+                margin-bottom: 1rem;
+                transition: all 300ms ease;
+                color:red;
+            }   
+    
+            .product-info a:hover {
+                color: var(--green);
+            }
+    
+        }
+
+        
+
+        /* Banner */
+
+        .banner {
+            position: relative;
+            background-color: var(--grey2);
+            padding: 14rem 20%;
+        }
+
+        .banner .right img {
+            top: 0px;
+            position: absolute;
+            bottom: 0;
+            max-width: 400px;
+            margin-left: 950px;
+            height: 490px;
+            border: 2px solid var(--grey2);
+        }
+
+        .banner .trend,
+        .banner p {
+            display: block;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .banner h1 {
+            font-size: 5.4rem;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        .banner .btn {
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        @media only screen and (max-width: 1500px) {
+            .banner {
+                padding: 14rem;
+            }
+
+            .banner .right img {
+                right: 3rem;
+                width: 70rem;
+            }
+        }
+
+        @media only screen and (max-width: 996px) {
+            .banner {
+                padding: 8rem 2rem;
+            }
+
+            .banner .trend,
+            .banner p {
+                font-size: 1.5rem;
+            }
+
+            .banner h1 {
+                font-size: 4rem;
+            }
+
+            .banner .right img {
+                right: -6%;
+                width: 50rem;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .banner {
+                display: grid;
+                grid-template-columns: 1fr;
+                height: 80vh;
+            }
+
+            .banner .left {
+                width: 100%;
+                margin-bottom: 3rem;
+            }
+
+            .banner .right {
+                flex:row;
+
+            }
+
+            .banner .right img {
+                right: 0;
+                width: 50rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .banner {
+                padding: 8rem 5rem;
+                width:1150px;
+            }
+
+            .banner .trend,
+            .banner p {
+                font-size: 30px;
+                margin-bottom: 1rem;
+            }
+
+            .banner h1 {
+                font-size: 50px;
+                margin-bottom: 1rem;
+            }
+
+            .banner .btn {
+                padding: 0.8rem 1.7rem;
+                font-size: 1.4rem;
+            }
+
+            .banner .right img {
+                top:-10px;
+                height:380px;
+                width: 500px;
+                margin-left:380px;
+            }
+        }
+
+        
+        /* Contact */
+        .contact {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 10rem 20rem;
+        }
+
+        .contact .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .contact .row .col h2 {
+            margin-top:-70px;
+            font-family:cursive;
+        }
+    
+        .contact .row .col p {
+            width: 70%;
+            margin-bottom: 2rem;
+            font-family:cursive;
+            
+        }
+
+        .btn-1 {
+            background-color: var(--green);
+            color: var(--white);
+            display: inline-block;
+            border-radius: 1rem;
+            padding: 1rem 2rem;
+        }
+
+        .contact form div {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .contact form input {
+            font-family: 'Roboto', sans-serif;
+            text-indent: 2rem;
+            width: 100%;
+            border-radius: 1rem;
+            padding: 1.5rem 0;
+            outline: none;
+            border: none;
+        }
+
+        .contact form a {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--green);
+            color: white;
+            margin: 0.5rem;
+            padding: 1rem 3rem;
+            border-radius: 1rem;
+        }
+
+        @media only screen and (max-width: 996px) {
+            .contact {
+                padding: 8rem 8rem;
+                width:1145px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .contact .row {
+                grid-template-columns: 1fr;
+                gap: 5rem 0;
+            }
+
+            .contact form div {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .contact {
+                padding: 8rem 1rem;
+                height:300px;
+            }
+            .contact .row {
+                grid-template-columns: 1fr;
+                gap: 5rem 0;
+            }
+            .contact .row .col h2 {
+                margin-top:-50px;
+                font-family:cursive;
+                margin-left:20px;
+                font-size:35px;
+            }
+        
+            .contact .row .col p {
+                width: 60%;
+                font-size:30px;
+                margin-top:10px;
+                font-family:cursive;
+                margin-left:20px;
+                
+            }
+    
+            .btn-1 {
+                background-color: var(--green);
+                color: var(--white);
+                display: inline-block;
+                border-radius: 1rem;
+                padding: 1rem 2rem;
+                margin-left:20px;
+            }
+    
+            .contact form div {
+                position: relative;
+                width: 40%;
+                margin-left:600px;
+                margin-top:-80px;
+            }
+    
+            .contact form input {
+                font-family: 'Roboto', sans-serif;
+                text-indent: 2rem;
+                width: 100%;
+                border-radius: 1rem;
+                padding: 1.5rem 0;
+                outline: none;
+                border: none;
+            }
+    
+            .contact form a {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: var(--green);
+                color: white;
+                margin: 0.5rem;
+                padding: 1rem 3rem;
+                border-radius: 1rem;
+            }
+        }
+
+
+        /* Footer */
+        .footer {
+            padding: 7rem 1rem;
+            background-color: var(--green);
+            height: 130px;
+        }
+
+        .part2 {
+            margin-top: -40px;
+            margin-left: 200px;
+
+        }
+
+        .spImage {
+            height: 70px;
+            margin-left: 10px;
+            margin-top: 5px;
+            border-radius: 50%;
+
+        }
+
+        .fhead {
+            margin-top: -70px;
+        }
+        @media only screen and (max-width: 60px) {
+            .footer {
+                padding: 7rem 1rem;
+                background-color: var(--green);
+                height: 130px;
+                width:1150px;
+            }
+    
+            .part2 {
+                margin-top: -40px;
+                margin-left: 200px;
+                font-style:cursive;
+                font-size:25px;
+    
+            }
+    
+            .spImage {
+                height: 70px;
+                margin-left: 10px;
+                margin-top: 5px;
+                border-radius: 50%;
+    
+            }
+    
+            .fhead {
+                margin-top: -70px;
+            }
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><img src='{%static "/images/lcor.jpg" %}' class="logo"></li>
+                <li><a href="mainpage">HOME</a></li>
+                <li><a href="dreamcatchers">SHOP</a></li>                
+                <li><a href="gallery">GALLERY</a></li>
+                <li><a href="mainpage">CONTACT US</a> </li>
+                {%if request.user.is_authenticated%}
+                <li><a href="logoutuser" class="btn btn-success" type="submit">LOGOUT</a></li>
+                {%endif%}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="up">
+        <div class="tag">
+            <img src="/static/head.jpg" class="head">
+            <div class="below">customising dreams</div>
+        </div>
+        <div class="wer">
+
+            <img src="/static/images/wlo.jpg" class="wlo">
+            <img src='{%static "images/res.jpg" %}' class="res">
+            <img src="/static/DC3.jpg" class="de">
+            <p class="cont"><strong>*GIVE A BOHO TOUCH TO YOUR WALLS*<br>
+
+                </strong></p>
+        </div>
+
+
+    </div>
+    <div class="slider-container">
+        <img src='{%static "images/1.jpg"%}' alt="Image 1">
+        <img src='{%static "images/2.jpg"%}' alt="Image 2">
+        <img src='{%static "images/m.jpg"%}' alt="Image 3">
+        <img src='{%static "images/dc.jpg"%}' alt="Image 3">
+        <img src='{%static "images/p.jpg"%}' alt="Image 3">
+
+
+    </div>
+    <!-- Categories Section -->
+    <section class="section category">
+        <div class="cat-center">
+            <div class="cat">
+                <img src="./static/images/8.jpg" alt="" />
+                <div>
+                    <a href="#" class="wri">DREAMCATCHERS</a>
+                </div>
+            </div>
+            <div class="cat">
+                <img src="./static/images/a.jpg" alt="" />
+                <div>
+                    <a href="#" class="wri">RESIN PRODUCTS</a>
+                </div>
+            </div>
+            <div class="cat">
+                <img src="./static/images/c.jpg" alt="" />
+                <div>
+                    <p> and MORE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- New Arrivals -->
+    <section class="section new-arrival">
+        <div class="title">
+            <h1>NEW ARRIVALS</h1>
+            <p>All the latest picked designs of our store</p>
+        </div>
+
+        <div class="product-center">
+            <div class="product-item">
+                <div class="overlay">
+                    <a href="productDetails.html" class="product-thumb">
+                        <img src="./static/images/dc.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="product-info">
+                    <a href="productDetails.html">Blue feather dreamcatcher</a>
+                    <h4>Rs.700</h4>
+                </div>
+                <ul class="icons">
+                    <li><i class="bx bx-heart"></i></li>
+                    <li><i class="bx bx-search"></i></li>
+                    <li><i class="bx bx-cart"></i></li>
+                </ul>
+            </div>
+            <div class="product-item">
+                <div class="overlay">
+                    <a href="" class="product-thumb">
+                        <img src="./static/images/dc3.jpg" alt="" />
+                    </a>
+                    <span class="discount">50%</span>
+                </div>
+
+                <div class="product-info">
+                    
+                    <a href="">Lightening Dreamcather</a>
+                    <h4>Rs.500</h4>
+                </div>
+                <ul class="icons">
+                    <li><i class="bx bx-heart"></i></li>
+                    <li><i class="bx bx-search"></i></li>
+                    <li><i class="bx bx-cart"></i></li>
+                </ul>
+            </div>
+            <div class="product-item">
+                <div class="overlay">
+                    <a href="" class="product-thumb">
+                        <img src="./static/images/6.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="product-info">
+                    
+                    <a href="">Keychain Dreamcatcher</a>
+                    <h4>Rs.150</h4>
+                </div>
+                <ul class="icons">
+                    <li><i class="bx bx-heart"></i></li>
+                    <li><i class="bx bx-search"></i></li>
+                    <li><i class="bx bx-cart"></i></li>
+                </ul>
+            </div>
+            <div class="product-item">
+                <div class="overlay">
+                    <a href="" class="product-thumb">
+                        <img src="./static/images/8.jpg" alt="" />
+                    </a>
+                    
+                </div>
+                <div class="product-info">                   
+                    <a href="">Car Hanging Dreamcatcher</a>
+                    <h4>Rs.150</h4>
+                </div>
+                <ul class="icons">
+                    <li><i class="bx bx-heart"></i></li>
+                    <li><i class="bx bx-search"></i></li>
+                    <li><i class="bx bx-cart"></i></li>
+                </ul>
+            </div>
+            <div class="product-item">
+                <div class="overlay">
+                    <a href="" class="product-thumb">
+                        <img src="./static/images/j.jpg" alt="" />
+                    </a>
+                </div>
+                <div class="product-info">
+                    
+                    <a href="">Resin Coasters</a>
+                    <h4>Rs.200</h4>
+                </div>
+                <ul class="icons">
+                    <li><i class="bx bx-heart"></i></li>
+                    <li><i class="bx bx-search"></i></li>
+                    <li><i class="bx bx-cart"></i></li>
+                </ul>
+            </div>
+            <div class="product-item">
+                <div class="overlay">
+                    <a href="" class="product-thumb">
+                        <img src='{%static "images/7.jpg"%}' alt="" />
+                    </a>
+                </div>
+                <div class="product-info">
+            
+                    <a href="">Keychain Dreamctcher</a>
+                    <h4>Rs.150</h4>
+                </div>
+                <ul class="icons">
+                    <li><i class="bx bx-heart"></i></li>
+                    <li><i class="bx bx-search"></i></li>
+                    <li><i class="bx bx-cart"></i></li>
+                </ul>
+            </div>
+            <div class="product-item">
+                <div class="overlay">
+                    <a href="" class="product-thumb">
+                        <img src='{%static "images/e.jpg"%}' alt="" />
+                    </a>
+                    <span class="discount">50%</span>
+                </div>
+                <div class="product-info">
+                    
+                    <a href="">Resin made wall clock-12 inch</a>
+                    <h4>Rs.1500</h4>
+                </div>
+                <ul class="icons">
+                    <li><i class="bx bx-heart"></i></li>
+                    <li><i class="bx bx-search"></i></li>
+                    <li><i class="bx bx-cart"></i></li>
+                </ul>
+            </div>
+            <div class="product-item">
+                <div class="overlay">
+                    <a href="" class="product-thumb">
+                        <img src='{%static "images/f.jpg"%}' alt="" />
+                    </a>
+                </div>
+                <div class="product-info">
+                    <a href="">Resin made bookmarks</a>
+                    <h4>Rs.200</h4>
+                </div>
+                <ul class="icons">
+                    <li><i class="bx bx-heart"></i></li>
+                    <li><i class="bx bx-search"></i></li>
+                    <li><i class="bx bx-cart"></i></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Promo -->
+
+    <section class="section banner">
+        <div class="left">
+            <span class="trend">Trend Design</span>
+            <h1>New Collection 2023</h1>
+            <p>New Arrival <span class="color">Sale 50% OFF</span> Limited Time Offer</p>
+            <a href="#" class="btn btn-1">Discover Now</a>
+        </div>
+        <div class="right">
+            <img src='{%static "images/5.jpg"%}' alt="">
+        </div>
+    </section>
+    <!-- Contact -->
+    <section class="section contact">
+        <div class="row">
+            <div class="col">
+                <h2>EXCELLENT SUPPORT</h2>
+                <p>We love our customers and they can reach us any time
+                    of day we will be at your service 24/7</p>
+                <a href="" class="btn btn-1">Contact</a>
+            </div>
+            <div class="col">
+                <form action="">
+                    <div>
+                        <input type="email" placeholder="Email Address">
+                        <a href="">Send</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h2 class="fhead">Our social media handles</h2>
+        <div class="d-flex">
+            <a href="https://www.instagram.com/craftcatcher_cc/"><img src='{%static "images/insta.jpg"%}' , alt="Sponsor Image" ,
+                    class="spImage" /></a>
+            <img src='{%static "images/fb.jpg"%}' , alt="Sponsor Image" , class="spImage" />
+            <div class="part2">
+                <h2> Email id: craftcatchers@gmail.com</h2>
+                <h2> Contact no: +91 1234567890</h2>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Variables
+        var images = document.querySelectorAll('.slider-container img');
+        var currentImage = 0;
+        var slideInterval = setInterval(nextImage, 2000); // Change slide every 2 seconds
+
+        // Next image function
+        function nextImage() {
+            images[currentImage].style.display = 'none'; // Hide current image
+            currentImage = (currentImage + 1) % images.length; // Calculate next image index
+            images[currentImage].style.display = 'block'; // Display next image
+        }
+
+        const hamburer = document.querySelector(".hamburger");
+        const navList = document.querySelector(".nav-list");
+
+        if (hamburer) {
+            hamburer.addEventListener("click", () => {
+                navList.classList.toggle("open");
+            });
+        }
+    </script>
+</body>
+
+
+</html>

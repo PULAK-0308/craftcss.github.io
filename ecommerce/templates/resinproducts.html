@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    {%load static%}
+    <title>Resin Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('{%static "peach.jpg"%}');
+            background-size: cover;
+
+        }
+
+        .he {
+            margin-top: -10px;
+            width: 100%;
+            height: 300px;
+
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+
+            border-radius: 5px;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+
+        .carousel-item  {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 100px;
+        }
+
+        .carousel-item img {
+            width: 60%;
+            height: 300px;
+            border-radius: 5px;
+            border: 1px solic black;
+        }
+        
+
+        .carousel-item h3,
+        h4 {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .cost {
+            padding: 0px;
+            margin: 0px;
+        }
+        .col-md-3 img {
+            width: 250px;
+            height: 250px;
+            }
+        
+
+        .navbar {
+            background-color: rgb(255, 79, 188);
+            border-radius: 0px;
+            margin-top: -20px;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            margin-left: 40px;
+            font-size: 20px;
+            font-family: cursive;
+        }
+        
+
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 13px 20ox;
+            padding-top: 20px;
+        }
+        
+        .navbar li a {
+            padding-top: 20px;
+            text-decoration: none;
+            color: white;
+            margin: 13px;
+
+        }
+        .cartlist1{
+            margin-left: 1450px;
+            color: red;
+            font-size: 20px;
+            
+            
+        }
+        .clearcart1{
+            
+            color: black;
+            font-size: 18px;
+            margin-top: 8px;
+            
+            
+        }
+        .checkoutlist1{
+            
+            color: black;
+            font-size: 18px;
+            margin-top: 8px;
+            
+            
+        }
+        .cart1{
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: blue;
+        }
+        
+        .quickview{
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: blue;
+        }
+
+        .navbar li a:hover {
+            color: red;
+        }
+
+        .search {
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+
+        .navbar input {
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 4px 17px;
+            width: 129px;
+        }
+
+        .logo {
+            margin-left: -20px;
+            margin-top: -10px;
+            width: 50px;
+        }
+
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #f95d03;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 25%;
+            opacity: 0.8;
+            margin-top: 100px;
+            margin-left: 400px;
+
+        }
+
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        #mydiv {
+            height: 115px;
+            max-width: 300px;
+            margin-top: 14px;
+            margin-left: 330px;
+            padding: 20px;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .b1 {
+            width: 200px;
+            margin-left: -300px;
+            padding: 12px;
+            margin-top: 7px;
+            border-radius: 15px;
+            color: #111110;
+            text-align: center;
+            font-weight: bolder;
+            background-color: rgb(16, 245, 8);
+        }
+
+        .b1:hover {
+            cursor: pointer;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><img src='{%static "lcor.jpg" %}' class="logo"></li>
+                <li><a href="mainpage">HOME</a></li>
+                <li><a href="dreamcatchers">DREAMCATCHERS</a></li>
+                <li><a href="resinproducts">RESIN PRODUCTS</a></li>
+                <li><a href="gallery">GALLERY</a></li>
+                <li><a href="mainpage">CONTACT US</a> </li>
+                {%if request.user.is_authenticated%}
+                    <li><a href="logoutuser" class="btn btn-success" type="submit">Logout</a></li>
+                {%endif%}
+                
+            </ul>
+            
+            
+            
+                <button type="button" font-size="30px" class="cartlist1" id="popcart" data-container="body" 
+                data-html="true" data-toggle="popover"
+                 data-placement="bottom" data-content="Bottom popover">
+                 Cart(<span id="cart1">0</span>)
+                </button>
+                
+                
+            
+              
+        </nav>
+        
+        
+    </header>
+
+    <div class="he">
+        <h1><img src='{%static "head1.jpg" %}' class="he"> </h1>
+    </div>
+
+    <div class="container carousel-inner no-padding">
+
+        <div class="carousel-item active">
+
+
+            {% for i in products %}
+
+            <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card align-items-center" style="width: 18rem;">
+                    <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5>{{forloop.counter}}</h5>
+                        <h5 class="card-title" id="namepr{{i.id}}"> {{i.product_name}}</h5>
+
+                        
+                        <h6 class="card-title">Price : <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                        <span id="dpr{{i.id}}" class="dpr">
+                            <button id="pr{{i.id}}" class="btn btn-primary cart1"><strong>Add to Cart</strong></button>
+                        </span>
+                        <a href="/craft/products/{{i.id}}"><button id="qv{{i.id}}"
+                                class="quickview"><strong>QuickView</strong></button></a>
+
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+        </div>
+        <div class="carousel-item">
+            {% endif %}
+
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"></script>
+
+    <script>
+
+        //cart==null ka matlab vo exist nhi karta
+        //find out cart items from local storage
+        if (localStorage.getItem('cart1') == null) {
+          var cart = {};
+      
+        }
+        else {
+          cart = JSON.parse(localStorage.getItem('cart1'));
+      
+          updateCart(cart);
+        }
+      
+        //if add to cart is clicked
+      
+      
+        //$('.cart').click(function () {
+        //console.log('clicked');
+        $('.dpr').on('click', 'button.cart1', function () {
+          idstr = this.id.toString();
+          console.log(idstr);
+          console.log(cart[idstr]);
+          if (cart[idstr] != undefined) {
+            qty = cart[idstr][0] + 1;
+      
+      
+      
+          }
+          else {
+            qty = 1;
+            name = document.getElementById('name' + idstr).innerHTML;
+            price = document.getElementById('price' + idstr).innerHTML;
+      
+            cart[idstr] = [qty, name, price];
+      
+      
+      
+      
+          }
+      
+      
+          //console.log(Object.values(cart));
+          //console.log(cart);//isse apan ne cart me kya add kiya h vo ata h 
+          updateCart(cart);
+      
+      
+      
+        });
+      
+        //add popover to cart
+        $('#popcart').popover();
+        updatePopover(cart)
+      
+        function updatePopover(cart) {
+          
+          var popStr = "";
+          popStr = popStr + "<h2>cart</h2><div class='mx-2 my-2 '>";
+          var i = 1;
+          for (var item in cart) {
+            popStr = popStr + "<b>" + i + "</b>. ";
+            popStr = popStr + document.getElementById('name' + item).innerHTML + "   qty: " + cart[item][0] + '<br>';
+            i = i + 1;
+      
+      
+          }
+          popStr = popStr + "</div> <a href='/shop/checkout'><button class='checkoutlist1' id='checkout1'>Checkout</button> </a> <button class='clearcart1' onclick='clearCart()' id='clearCart1'>Clear Cart</button>  "
+          document.getElementById('popcart').setAttribute('data-content', popStr);
+          $('#popcart').popover('show');
+        }
+      
+        function updateCart(cart) {
+          console.log(cart)
+          var sum = 0;
+          for (var item in cart) {
+            sum = sum + cart[item][0];
+            document.getElementById('d' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+          }
+          localStorage.setItem('cart1', JSON.stringify(cart));
+          document.getElementById('cart1').innerHTML = sum;
+          updatePopover(cart);
+        }
+      
+        function clearCart() {
+          cart = JSON.parse(localStorage.getItem('cart1'));
+          for (var item in cart) {
+            document.getElementById('d' + item).innerHTML = '<button id="' + item + '" class="btn btn-primary cart1">Add to Cart</button>'
+            console.log(item);
+            console.log('d' + item);
+          }
+      
+          localStorage.clear();
+          cart = {};
+          updateCart(cart);
+        }
+      
+        //if minus or plus button is clicked then change the cart as well as display value
+        $('.dpr').on('click', "button.minus", function () { //iska matlab divpr ke minus button pe click karta h
+          //console.log("minus clicked");
+          a = this.id;
+          //console.log(a);//jaise maine pr5 pe click kra to minuspr5 aa rha h mjhe sirf pr5 chahiye to m slice(6,)ye use karunga iska matlb 6th character se start kare
+          a = this.id.slice(5,);
+          //console.log(a);
+          //console.log(cart[a])
+          cart[a][0] = cart[a][0] - 1;
+          cart[a][0] = Math.max(0, cart[a][0]);
+         if(cart[a][0]==0)
+         {
+          document.getElementById('d'+a).innerHTML='<button id="a" class="btn btn-primary cart1">Add to Cart</button>';
+          
+          console.log(a);
+          delete cart[a];
+         }
+      
+          updateCart(cart);
+      
+      
+        });
+      
+        $('.dpr').on('click', "button.plus", function () {
+          //console.log("plus clicked");
+          a = this.id;
+          //console.log(a);//jaise maine pr5 pe click kra to minuspr5 aa rha h mjhe sirf pr5 chahiye to m slice(6,)ye use karunga iska matlb 6th character se start kare
+          a = this.id.slice(4,);
+          //console.log(a);
+          //console.log(cart[a])
+          cart[a][0] = cart[a][0] + 1;
+      
+      
+          updateCart(cart);
+        });
+      
+      
+      </script>
+      
+    
+
+        
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {%load static%}
+    <title>Dreamcatchers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('peach.jpeg');
+            background-size: cover;
+
+        }
+
+        .he {
+            margin-top: -10px;
+            width: 100%;
+            height: 300px;
+
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+
+            border-radius: 5px;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+
+        .product {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 500px;
+            border-radius: 5px;
+            border: 1px solic black;
+        }
+
+        .product h3,
+        h4 {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .cost {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .navbar {
+            background-color: rgb(255, 79, 188);
+            border-radius: 0px;
+            margin-top: -20px;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            margin-left: 40px;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 13px 20ox;
+            padding-top: 20px;
+        }
+
+        .navbar li a {
+            padding-top: 20px;
+            text-decoration: none;
+            color: white;
+            margin: 13px;
+
+        }
+
+        .navbar li a:hover {
+            color: red;
+        }
+
+        .search {
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+
+        .navbar input {
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 4px 17px;
+            width: 129px;
+        }
+
+        .logo {
+            margin-left: -20px;
+            margin-top: -10px;
+            width: 50px;
+        }
+
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #f95d03;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 25%;
+            opacity: 0.8;
+            margin-top: 100px;
+            margin-left: 400px;
+
+        }
+
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        #mydiv {
+            height: 115px;
+            max-width: 300px;
+            margin-top: 14px;
+            margin-left: 330px;
+            padding: 20px;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .b1 {
+            width: 200px;
+            margin-left: -300px;
+            padding: 12px;
+            margin-top: 7px;
+            border-radius: 15px;
+            color: #111110;
+            text-align: center;
+            font-weight: bolder;
+            background-color: rgb(16, 245, 8);
+        }
+
+        .b1:hover {
+            cursor: pointer;
+            background-color: blue;
+        }
+
+        .vi {
+            height: 340px;
+            width: 300px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#"><img src='{%static "lcor.jpg" %}' class="logo"></a></li>
+                <li><a href="mainpage">HOME</a></li>
+                <li><a href="dreamcatchers">DREAMCATCHERS</a></li>
+                
+                <li><a href="gallery">GALLERY</a></li>
+                <li><a href="mainpage">CONTACT US</a> </li>
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="search this website">
+                </div>
+                {%if request.user.is_authenticated%}
+                <li><a href="logoutuser" class="btn btn-success" type="submit">Logout</a></li>
+                {%endif%}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="he">
+        <h1><img src='{%static "head1.jpg" %}' class="he"> </h1>
+    </div>
+
+    <div class="container">
+
+        <div class="product">
+            <div>
+                <video class="vi" controls>
+                    <source src='{%static "v1.mp4" %}' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div>
+                <video class="vi" controls>
+                    <source src='{%static "v2.mp4" %}' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </div>
+            <div>
+                <video class="vi" controls>
+                    <source src='{%static "v3.mp4" %}' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div>
+                <video class="vi" controls>
+                    <source src='{%static "v4.mp4" %}' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="product">
+            <div>
+                <video class="vi" controls>
+                    <source src='{%static "v5.mp4" %}' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div>
+                <video class="vi" controls>
+                    <source src='{%static "v6.mp4" %}' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </div>
+            <div>
+                <video class="vi" controls>
+                    <source src='{%static "v7.mp4" %}' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div>
+                <video class="vi" controls>
+                    <source src='{%static "v8.mp4" %}' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    
+
+
+
+    <script>
+        var videos = document.querySelectorAll('video');
+        for (var i = 0; i < videos.length; i++)
+            videos[i].addEventListener('play', function () { pauseAll(this) }, true);
+
+
+        function pauseAll(elem) {
+            for (var i = 0; i < videos.length; i++) {
+                //Is this the one we want to play?
+                if (videos[i] == elem) continue;
+                //Have we already played it && is it already paused?
+                if (videos[i].played.length > 0 && !videos[i].paused) {
+                    // Then pause it now
+                    videos[i].pause();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

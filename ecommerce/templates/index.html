@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    {% load static%}
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{% static "loginimage.jpg" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+        }
+
+        .container {
+            height: 287px;
+            width: 360px;
+            margin-top: 48px;
+            margin-left: 330px;
+            padding: 20px;
+            background-color: #626060;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+           
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+             margin-top:-10px ;
+        }
+
+        label,
+        input {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+            height: 25px;
+            border: 10px
+        }
+
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            margin-left: 50px;
+            border-radius: 15px;
+            cursor: pointer;
+            width: 150px;
+            margin-top: 18px;
+            height: 34px;
+        }
+
+        
+        .header {
+            margin-top: -10px;
+            width: 400px;
+            height: 250px;
+
+        }
+        .btn{
+            margin-top: -19px;
+            font-size: 18px;
+            
+        }
+        .btn:hover{
+            background-color: #ea4f07;
+            
+        }
+        .col-6{
+            margin-top: -18px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    
+
+    <div class="header">
+        <h1><img src='{% static "lon.jpg" %}' class="header"> </h1>
+    </div>
+
+    <div class="container">
+        
+        <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+            <h3>Login</h3>
+            {% csrf_token %} 
+            {%if messages%}
+        <div class="alert alert-primary" role="alert">
+            {%for message in messages%}
+            {{message}}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text"  class="form-control" name="username">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1"  class="form-label">Password</label>
+            <input type="password"  class="form-control" name="password">
+        </div>
+
+        <p>Don't have account <a href="register">Register</a></p>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+            
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> payment page</title>
+</head>
+<body>
+    <button id="rzp-button1">Pay with Razorpay</button>
+    
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "rzp_test_FYqvo67zNk6DSr", // Enter the Key ID generated from the Dashboard
+        
+        "name": "craft",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the `id` obtained 
+        "callback_url":"{{callback_url}}",
+        
+        
+        "prefill": {
+            "name": "Gaurav Kumar",
+            "email": "gaurav.kumar@example.com",
+            "contact": "9000090000"
+        },
+        
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+            alert(response.error.code);
+            
+    });
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+    </script>
+</body>
+
+</html>
